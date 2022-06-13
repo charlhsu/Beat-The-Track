@@ -42,7 +42,7 @@ public class Gramophone : MonoBehaviour
             //Association de l'instrument lié au disque au joeuur
             Instrument instrumentClone = Instantiate(diskClone.instrumentLinked);
             instrumentClone.transform.parent = PlayerController.instance.instrumentArm.transform;
-            instrumentClone.transform.position = PlayerController.instance.instrumentArm.position;
+            instrumentClone.transform.localPosition = instrumentClone.localPos;
             instrumentClone.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
             diskClone.instrumentLinked = instrumentClone;//Should modifie this with a proper variable for the clone and not adding the clone to the attribute where the prefab was
 

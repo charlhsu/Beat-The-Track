@@ -303,7 +303,7 @@ public class PlayerController : MonoBehaviour
                     {
                         disk.instrumentLinked.instrumentSR.sortingOrder = -1;
 
-                        disk.instrumentLinked.transform.localPosition = new Vector3(-0.3f, 0.45f, 0f);
+                        
                         foreach (SpriteRenderer hand in disk.instrumentLinked.instrumentHandsSR)
                         {
                             hand.sortingOrder = -2;
@@ -345,7 +345,7 @@ public class PlayerController : MonoBehaviour
                         disk.instrumentLinked.isFront = true;
                         disk.instrumentLinked.SwitchSide();
                         disk.instrumentLinked.instrumentSR.sortingOrder = 1;
-                        disk.instrumentLinked.transform.localPosition = new Vector3(-0.3f, 0.45f, 0);
+                       
                         foreach (SpriteRenderer hand in disk.instrumentLinked.instrumentHandsSR)
                         {
                             hand.sortingOrder = 2;

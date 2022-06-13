@@ -12,6 +12,9 @@ public class Instrument : MonoBehaviour
     public Sprite frontSprite;
     public Sprite backSprite;
     public SpriteRenderer[] instrumentHandsSR;
+    public Vector3 leftScale, rightScale, localPos;
+    
+    
 
     public Transform firePoint;
     [HideInInspector]

@@ -30,7 +30,7 @@ public class JukeboxAnimation : MonoBehaviour
     void Start()
     {
         theCam = Camera.main;
-        Debug.Log("pipi = caca");
+       
     }
 
     // Update is called once per frame
@@ -39,15 +39,16 @@ public class JukeboxAnimation : MonoBehaviour
         //private Vector3 screenPoint = theCam.WorldToScreenPoint(temoin.transform.localPosition);
 
         //disque 1 (distance)
-        if (currentDisks[0] != null)
+/*        if (currentDisks[0] != null)
         {
             if (Input.GetMouseButton(0))
             {
                 anim.SetBool("isFiring", true);
                 RotateDisk(0, shootRS);
             }
-            else if(!Input.GetMouseButton(1)&& currentDisks[1] != null)
+            else if(!Input.GetMouseButton(1)*//*&& currentDisks[1] != null*//*)
             {
+                Debug.Log("prout");
                 anim.SetBool("isFiring", false);
                 RotateDisk(0, noShootRS);
 
@@ -77,6 +78,50 @@ public class JukeboxAnimation : MonoBehaviour
                 RotateDisk(1, noShootRS);
             }
           
+        }*/
+
+        if(Input.GetMouseButton(0) || Input.GetMouseButton(1))
+        {
+            anim.SetBool("isFiring", true);
+
+            if (currentDisks[0] != null)
+            {
+                if (Input.GetMouseButton(0))
+                {
+                    RotateDisk(0, shootRS);
+                }
+                else
+                {
+                    RotateDisk(0, noShootRS);
+                }
+
+
+            }
+
+            if (currentDisks[1] != null)
+            {
+                if (Input.GetMouseButton(1))
+                {
+                    RotateDisk(1, shootRS);
+                }
+                else
+                {
+                    RotateDisk(1, noShootRS);
+                }
+                
+            }
+        }
+        else
+        {
+            if (currentDisks[0] != null )
+            {
+                RotateDisk(0, noShootRS);
+            }
+            if(currentDisks[1]!= null)
+            {
+                RotateDisk(1, noShootRS);
+            }
+            anim.SetBool("isFiring", false);
         }
 
         /*if(PlayerController.instance.moveInput.y == -1)

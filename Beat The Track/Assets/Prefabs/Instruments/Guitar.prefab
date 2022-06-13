@@ -108,6 +108,9 @@ MonoBehaviour:
   instrumentHandsSR:
   - {fileID: 3202267647352354538}
   - {fileID: 3202267646688726490}
+  leftScale: {x: 0, y: 0, z: 0}
+  rightScale: {x: 0, y: 0, z: 0}
+  localPos: {x: -0.3, y: 0.45, z: 0}
   firePoint: {fileID: 8659582325259213948}
   isFront: 0
 --- !u!95 &1672996483489830359

@@ -27,16 +27,23 @@ public class Disk : MonoBehaviour
     public float timeBetweenShots;
     public float angleError;
     private float shotCounter;
+    private Camera theCam;
 
     // Start is called before the first frame update
     void Start()
     {
+        theCam = Camera.main;
         instrumentSR = instrumentLinked.GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 screenPoint = theCam.WorldToScreenPoint(PlayerController.instance.transform.localPosition);
 
         //Contrôle de l'état du joueur
         if (PlayerController.instance.canMove && !LevelManager.instance.isPaused)
@@ -58,6 +65,8 @@ public class Disk : MonoBehaviour
                         float error = Random.Range(-angleError/2, angleError/2);
                         Instantiate(bulletToFire, instrumentLinked.firePoint.position, instrumentLinked.firePoint.rotation * Quaternion.Euler(0,0,error));
                         shotCounter = timeBetweenShots;
+
+                       
                        
                     }
                     if (Input.GetMouseButtonDown(0))
