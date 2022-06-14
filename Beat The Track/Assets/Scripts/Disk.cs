@@ -27,12 +27,12 @@ public class Disk : MonoBehaviour
     public float timeBetweenShots;
     public float angleError;
     private float shotCounter;
-    private Camera theCam;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        theCam = Camera.main;
+  
         instrumentSR = instrumentLinked.GetComponent<SpriteRenderer>();
 
     }
@@ -42,9 +42,7 @@ public class Disk : MonoBehaviour
     {
 
 
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 screenPoint = theCam.WorldToScreenPoint(PlayerController.instance.transform.localPosition);
-
+        
         //Contrôle de l'état du joueur
         if (PlayerController.instance.canMove && !LevelManager.instance.isPaused)
         {
