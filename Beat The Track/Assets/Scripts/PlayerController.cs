@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     //Référence
     public static PlayerController instance;
     //Définition des variables de jeu 
+    //test commit 
 
     [Header("Déplacement")]
     public float moveSpeed;
