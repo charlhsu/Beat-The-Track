@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     //Référence
     public static PlayerController instance;
-    //Définition des variables de jeu
+    //Définition des variables de jeu 
 
     [Header("Déplacement")]
     public float moveSpeed;

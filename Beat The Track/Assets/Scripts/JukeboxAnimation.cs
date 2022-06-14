@@ -82,13 +82,14 @@ public class JukeboxAnimation : MonoBehaviour
 
         if(Input.GetMouseButton(0) || Input.GetMouseButton(1))
         {
-            anim.SetBool("isFiring", true);
+            
 
             if (currentDisks[0] != null)
             {
                 if (Input.GetMouseButton(0))
                 {
                     RotateDisk(0, shootRS);
+                    anim.SetBool("isFiring", true);
                 }
                 else
                 {
@@ -103,6 +104,7 @@ public class JukeboxAnimation : MonoBehaviour
                 if (Input.GetMouseButton(1))
                 {
                     RotateDisk(1, shootRS);
+                    anim.SetBool("isFiring", true);
                 }
                 else
                 {
