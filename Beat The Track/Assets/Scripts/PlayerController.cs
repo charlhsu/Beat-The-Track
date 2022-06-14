@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         theCam = Camera.main;
         activeMoveSpeed = moveSpeed;
 

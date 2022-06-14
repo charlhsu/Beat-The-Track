@@ -22,7 +22,8 @@ public class PlayerHealthController : MonoBehaviour
     void Start()
     {
         //UI control
-        currentHealth = maxHealth;
+        maxHealth = CharacterTracker.instance.maxHealth;
+        currentHealth = CharacterTracker.instance.currentHealth;
 
         UIController.instance.healthSlider.maxValue = maxHealth;
         UIController.instance.healthSlider.value = currentHealth;
