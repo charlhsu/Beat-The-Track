@@ -2107,7 +2107,7 @@ MonoBehaviour:
   - {fileID: 5642200143274819405}
   openWhenEnnemiesCleared: 1
   theRoom: {fileID: 0}
-  needGrav: 1
+  needGrav: 0
 --- !u!1 &7766766819797653883
 GameObject:
   m_ObjectHideFlags: 0
