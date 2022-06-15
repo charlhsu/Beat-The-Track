@@ -9979,6 +9979,11 @@ MonoBehaviour:
   Target: {fileID: 2069023901}
   mainCamera: {fileID: 519420031}
   bigMapCamera: {fileID: 0}
+--- !u!4 &1087783689 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3707145915289662846, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
+  m_PrefabInstance: {fileID: 1903762928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1115152123
 GameObject:
   m_ObjectHideFlags: 0
@@ -10120,7 +10125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1647954118175992514, guid: 8d5781942aebadb438fb2573a5ccc98e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1647954118175992526, guid: 8d5781942aebadb438fb2573a5ccc98e, type: 3}
       propertyPath: m_Pivot.x
@@ -10220,11 +10225,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1647954119839407132, guid: 8d5781942aebadb438fb2573a5ccc98e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1647954119839407132, guid: 8d5781942aebadb438fb2573a5ccc98e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d5781942aebadb438fb2573a5ccc98e, type: 3}
@@ -10438,6 +10443,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3707145915289662846, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707145915289662846, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.17
+      objectReference: {fileID: 0}
     - target: {fileID: 9069191470324377600, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
       propertyPath: Loop
       value: 0
@@ -10502,6 +10515,10 @@ PrefabInstance:
       propertyPath: musicList.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9069191470445105747, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
+      propertyPath: startPoint
+      value: 
+      objectReference: {fileID: 1087783689}
     - target: {fileID: 9069191470445105759, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
       propertyPath: m_Name
       value: Managers
