@@ -17,4 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Victory.unity
     guid: 081d39e9795ca514ebdecbe3b0bd2341
+  - enabled: 1
+    path: Assets/Scenes/HUB.unity
+    guid: 19128fdf9e6fe3c49bc305efdf990059
+  - enabled: 1
+    path: Assets/Scenes/Level Rock.unity
+    guid: ee88eb32672952447a15996154c8ffa1
+  - enabled: 1
+    path: Assets/Scenes/level electro.unity
+    guid: d9037bda06fd3af4380f9316c1237472
+  - enabled: 1
+    path: Assets/Scenes/Level RAP.unity
+    guid: 9407e91bad0829d4dac11dd1b9e46f93
+  - enabled: 1
+    path: Assets/Scenes/Level POP.unity
+    guid: 5c4531336cbf86a4aa40a1ffcce5287d
   m_configObjects: {}

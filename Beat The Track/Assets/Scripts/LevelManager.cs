@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
     public float waitToLoad;
     public bool isPaused;
+    private string nextRockLevel, nextElectroLevel;
+    public bool nextLevelIsRock, nextLevelIsElectro;
 
     public int currentCoins;
 
@@ -44,7 +46,7 @@ public class LevelManager : MonoBehaviour
     public IEnumerator LevelEnd()
     {
         AudioManager.instance.PlayVictory();
-        UIController.instance.StartFadeToBlack();
+        //UIController.instance.StartFadeToBlack();
         PlayerController.instance.canMove = false;
         yield return new WaitForSeconds(waitToLoad);
 
@@ -86,4 +88,25 @@ public class LevelManager : MonoBehaviour
         UIController.instance.coinText.text = currentCoins.ToString();
 
     }
+    public void LevelToLoad(int levelToLoad)
+    {
+        if (levelToLoad == 1)
+        {
+            nextLevel = "Level Rock";
+        }
+        if (levelToLoad == 2)
+        {
+            nextLevel = "level electro";
+        }
+        if (levelToLoad == 3)
+        {
+            nextLevel = "Level RAP";
+        }
+        if (levelToLoad == 4)
+        {
+            nextLevel = "Level POP";
+        }
+        LevelEnd();
+    }
+
 }
