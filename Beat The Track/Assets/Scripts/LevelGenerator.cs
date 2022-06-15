@@ -44,6 +44,13 @@ public class LevelGenerator : MonoBehaviour
     public RoomCenter centerStart, centerEnd, centerShop, centerChest;
     public RoomCenter[] potentialCenters;
 
+    //Gestion du nombre de room par rapport à la longueur
+    private float testLongueur;
+    private float floatNumberOfRoom;
+    private int numberOfLevel;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +63,6 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < distanceToEnd; i++)
         {
             GameObject newRoom = Instantiate(layoutRoom, generatorPoint.position, generatorPoint.rotation);
-
             layoutRoomObjects.Add(newRoom);
             if (i + 1 == distanceToEnd)
             {
@@ -296,11 +302,11 @@ public class LevelGenerator : MonoBehaviour
     {
         
       
-        float testLongueur = AudioManager.instance.musicToPlay.clip.length;
+        testLongueur = AudioManager.instance.musicToPlay.clip.length;
         //distanceToEnd = numberOfRoom;
         //MusicEvent.instance.EventMusic(testLongueur);
-        float floatNumberOfRoom = testLongueur / 10;
-        int numberOfLevel = Mathf.RoundToInt(floatNumberOfRoom);
+        floatNumberOfRoom = testLongueur / 10;
+        numberOfLevel = Mathf.RoundToInt(floatNumberOfRoom);
         distanceToEnd = numberOfLevel;
 
 
