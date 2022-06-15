@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public Transform[] slots;
 
 
-    private Camera theCam;
+    //private Camera theCam;
 
     /*public GameObject bulletToFire;
     public Transform firePoint;
@@ -70,7 +70,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        theCam = Camera.main;
+       
+        //theCam = Camera.main;
         activeMoveSpeed = moveSpeed;
 
         //attribution des SR
@@ -125,7 +126,7 @@ public class PlayerController : MonoBehaviour
 
             //Acquisition des coordonnées de la sourie sur le monde
             Vector3 mousePos = Input.mousePosition;
-            Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
+            Vector3 screenPoint = CameraController.instance.mainCamera.WorldToScreenPoint(transform.localPosition);
             if (!canJump)
             {
                 theRB.velocity = moveInput * activeMoveSpeed;
@@ -267,7 +268,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 mousePos = Input.mousePosition;
-        Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
+        Vector3 screenPoint = CameraController.instance.mainCamera.WorldToScreenPoint(transform.localPosition);
 
         //Cas tourné vers le haut
         if (mousePos.y > screenPoint.y)
