@@ -19,7 +19,9 @@ public class EnemySpawner : MonoBehaviour
     public Transform spawnPoint;
 
 
-    public bool activeOnSight, activeOnTouch, activeOnTimer;
+    public bool activeOnSight, activeOnTouch, activeOnTimer, isTriggerSpawner;
+
+    private bool hasBeenTriggered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,11 @@ public class EnemySpawner : MonoBehaviour
 
         }
         if (activeOnSight)
+        {
+            isSpawnerActive = true;
+        }
+
+        if (isTriggerSpawner)
         {
             isSpawnerActive = true;
         }
@@ -74,6 +81,14 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemies();
         }
 
+        if (isTriggerSpawner)
+        {
+            if (hasBeenTriggered)
+            {
+                SpawnEnemies();
+            }
+        }
+
 
     }
 
@@ -91,14 +106,34 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(enemiesSpawnable[enemyToSpawn], spawnPoint.position, spawnPoint.rotation);
                 spawnCounter++;
                 spawnRateCounter = 0;
+
+                //réinitialisation du spawner
                 if (spawnCounter >= numberOfEnemyToSpawn)
                 {
-                    isSpawnerActive = false;
-                    enemySpawner.SetActive(false);
+                    if (!isTriggerSpawner)
+                    {
+                       
+                        isSpawnerActive = false;
+                        enemySpawner.SetActive(false);
+                    }
+                    
+                    if (isTriggerSpawner)
+                    {
+                        hasBeenTriggered = false;
+                        
+                        waitEnough = false;
+                        spawnCounter = 0;
+
+
+                    }
                 }
             }
 
         }
+    }
+    public void Trigger()
+    {
+        hasBeenTriggered = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

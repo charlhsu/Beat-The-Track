@@ -848,6 +848,10 @@ PrefabInstance:
       propertyPath: musicList.Array.data[1]
       value: 
       objectReference: {fileID: 1115152124}
+    - target: {fileID: 9069191470445105747, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
+      propertyPath: startPoint
+      value: 
+      objectReference: {fileID: 1903762929}
     - target: {fileID: 9069191470445105759, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -858,6 +862,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
+--- !u!4 &1903762929 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3707145915289662846, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
+  m_PrefabInstance: {fileID: 1903762928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2069023901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3254613118461148846, guid: 9ecb2b27b8c11e640b80dbb2a1abda0f, type: 3}

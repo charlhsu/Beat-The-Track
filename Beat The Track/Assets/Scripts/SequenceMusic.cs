@@ -67,9 +67,9 @@ public class SequenceMusic : MonoBehaviour
         if(actionCounter <= 0 && currentAction <= actions.Length -1 && aSequenceIsActive)
         {
             //Activation des spawners
-            foreach(GameObject spawner in actions[currentAction].spawnersToActivate)
+            foreach(EnemySpawner spawner in actions[currentAction].spawnersToActivate)
             {
-                spawner.SetActive(true);
+                spawner.Trigger();
 
             }
             //mise à jour de l'action en court
@@ -96,7 +96,9 @@ public class MusicAction
 {
     [Header("Action")]
     public float actionLength;
-    public GameObject[] spawnersToActivate;
+    public EnemySpawner[] spawnersToActivate;
+    
+
 }
 [System.Serializable]
 public class MusicSequence
