@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 112
+  controlID: 24
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 55
+  controlID: 80
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 56
+  controlID: 81
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,8 +271,8 @@ MonoBehaviour:
     y: 0
     width: 497
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -320,22 +320,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Music/Rock
+    - Assets/Music
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 92
   m_LastFolders:
-  - Assets/Music/Rock
+  - Assets/Music
   m_LastFoldersGridSize: 92
   m_LastProjectPath: D:\GitHub\Beat-The-Track\Beat The Track
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 360}
-    m_SelectedIDs: 18730000
-    m_LastClickedID: 29464
-    m_ExpandedIDs: 00000000c2720000c4720000c6720000c8720000ca720000cc720000ce720000d07200000473000000ca9a3b
+    scrollPos: {x: 0, y: 60}
+    m_SelectedIDs: 2a670000
+    m_LastClickedID: 26410
+    m_ExpandedIDs: 000000001e67000020670000226700002467000026670000286700002a6700002c67000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -363,7 +363,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c2720000c4720000c6720000c8720000ca720000cc720000ce720000d0720000
+    m_ExpandedIDs: 000000001e67000020670000226700002467000026670000286700002a6700002c670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -452,7 +452,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d089faff30a7faff16a8faffaca8faffd8a8faff04a9faff26abfaff82affafff8b3faff46b8faff46bdfaff3cd8faff16f6ffff2cf6ffff20fbfffff4ffffff8c93000092930000
+      m_ExpandedIDs: feb1ffffd2b5ffff68b6ffffe4bfffffcec2ffffdcc6ffff80effffffaf7ffff2efbffff78850000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -563,7 +563,7 @@ MonoBehaviour:
       containerId: overlay-toolbar__top
       floating: 0
       collapsed: 0
-      displayed: 1
+      displayed: 0
       snapOffset: {x: -151, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 1
@@ -723,9 +723,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -5.313993, y: 39.252724, z: 0.016821023}
+    m_Target: {x: 2.5156357, y: -2.0010753, z: 3.0914586}
     speed: 2
-    m_Value: {x: -5.313993, y: 39.252724, z: 0.016821023}
+    m_Value: {x: 2.4232187, y: -1.8837537, z: 3.0898051}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -776,9 +776,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.317896
+    m_Target: 3.5086823
     speed: 2
-    m_Value: 8.317896
+    m_Value: 3.674013
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -864,7 +864,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -1278,6 +1278,6 @@ MonoBehaviour:
     m_CachedPref: 50
     m_ControlHash: 1964396721
     m_PrefName: Preview_TilemapBrushInspector
-  m_Palette: {fileID: 5011123601535498746, guid: 070dc03edda41114bbcb1f15f50fdac0, type: 3}
+  m_Palette: {fileID: 6745182854849513521, guid: 1c0c725d3e1245e4db4ed92595767ce5, type: 3}
   m_DrawGridGizmo: 1
   m_DrawGizmos: 1
