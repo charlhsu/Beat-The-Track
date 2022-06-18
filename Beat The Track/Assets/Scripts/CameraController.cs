@@ -81,4 +81,11 @@ public class CameraController : MonoBehaviour
         UIController.instance.bigMapText.SetActive(false);
         }
     }
+    public void Zoom(float targetZoom, float zoomRate)
+    {
+        mainCamera.orthographicSize = Mathf.MoveTowards(mainCamera.orthographicSize, targetZoom, zoomRate * Time.deltaTime);
+    }
+
+
 }
+

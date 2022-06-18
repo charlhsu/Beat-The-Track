@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerCutscene : MonoBehaviour
 {
 
-    private bool cutsceneActive = false;
+    private bool shouldWalk = false;
     public float distanceToCross;
     public float waitingTime;
-    public float CutsceneMoveSpeed;
-    private Vector3 direction = new Vector3(0, 1, 0);
+
+    private Vector2 direction = new Vector2(0, 1);
     private Vector3 startPoint;
-    private 
+    private bool idle;
+    private bool launchCamMove = false;
 
 
     // Start is called before the first frame update
@@ -24,15 +25,39 @@ public class PlayerCutscene : MonoBehaviour
     void Update()
     {
         //Player can't control character during cutscene
-        if (cutsceneActive)
+        if (shouldWalk)
         {
+            CameraController.instance.Zoom(2, 10);
+            PlayerController.instance.ForceSortBodyElement("back");
             PlayerController.instance.canMove = false;
-            PlayerController.instance.transform.position += CutsceneMoveSpeed * direction;
-           /* if(Vector3.Distance(transform.position, PlayerController.instance.transform.position) >= distanceToCross)
+            PlayerController.instance.theRB.velocity = PlayerController.instance.moveSpeed * direction;
+            PlayerController.instance.anim.SetBool("isMoving", true);
+            PlayerController.instance.anim.SetBool("isFront", false);
+            if (PlayerController.instance.transform.position.y - transform.position.y  >= distanceToCross)
             {
-                cutsceneActive = false;
-                PlayerController.instance.canMove = true;
-            }*/
+                shouldWalk = false;
+                
+
+                PlayerController.instance.anim.SetBool("isFront", true);
+                
+                PlayerController.instance.ForceSortBodyElement("front");
+                idle = true;
+            }
+            if (idle)
+            {
+                StartCoroutine(WaitCamMove());
+                Debug.Log(launchCamMove);
+                if (launchCamMove)
+                {
+                    CameraController.instance.Zoom(8, 4);
+                }
+                if (CameraController.instance.mainCamera.orthographicSize >= 8)
+                {
+                    StartCoroutine(WaitZoom());
+                }
+              
+                
+            }
         }
     }
 
@@ -40,9 +65,26 @@ public class PlayerCutscene : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            cutsceneActive = true;
+            shouldWalk = true;
         }
     }
 
+    IEnumerator WaitCamMove()
+    {
+        
+        yield return new WaitForSeconds(1);
+        Debug.Log("turlututu chapo pointu");
+        launchCamMove = true;
+
+    }
+    IEnumerator WaitZoom()
+    {
+        yield return new WaitForSeconds(1);
+        idle = false;
+        PlayerController.instance.canMove = true;
+            
+    }
+
+    
 
 }

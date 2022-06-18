@@ -154,7 +154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76631223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.53, y: -9.65, z: 11.444668}
+  m_LocalPosition: {x: -0.53, y: -9.61, z: 11.444668}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -173,9 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c3cfc87f4cfa4479906d006d162e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToCross: 50
+  distanceToCross: 11
   waitingTime: 0
-  CutsceneMoveSpeed: 0
 --- !u!61 &76631226
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -425,6 +424,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 784513416102149822, guid: 253ef382496a08d448fb1d1b27f51eb4, type: 3}
+      propertyPath: spawnRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 784513416102149822, guid: 253ef382496a08d448fb1d1b27f51eb4, type: 3}
       propertyPath: activeOnSight
       value: 0
       objectReference: {fileID: 0}
@@ -434,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784513416102149822, guid: 253ef382496a08d448fb1d1b27f51eb4, type: 3}
       propertyPath: numberOfEnemyToSpawn
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 784513416102149822, guid: 253ef382496a08d448fb1d1b27f51eb4, type: 3}
       propertyPath: enemiesSpawnable.Array.size
@@ -7359,8 +7362,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2649191344740149802, guid: 8d5781942aebadb438fb2573a5ccc98e, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7286636984980824125, guid: 8d5781942aebadb438fb2573a5ccc98e, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158744802540852016, guid: 8d5781942aebadb438fb2573a5ccc98e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158744802540852016, guid: 8d5781942aebadb438fb2573a5ccc98e, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7447,11 +7462,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3707145915289662846, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.68
+      value: -8.63
       objectReference: {fileID: 0}
     - target: {fileID: 3707145915289662846, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.89
+      value: -14.24
       objectReference: {fileID: 0}
     - target: {fileID: 9069191469547288287, guid: df2ed075fd9491f4a957f4fd161bd979, type: 3}
       propertyPath: Loop

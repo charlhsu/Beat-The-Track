@@ -91,8 +91,9 @@ public class PlayerController : MonoBehaviour
         bool arrayEmpty = true;
         foreach (Disk slot in JukeboxAnimation.instance.currentDisks)
         {
-            if (slot != null)
-            {
+            if (slot != null) 
+            { 
+            
                 arrayEmpty = false;
             }
         }
@@ -102,6 +103,8 @@ public class PlayerController : MonoBehaviour
             {
                 Physics2D.gravity = new Vector2(0, 0);
                 moveInput.y = Input.GetAxisRaw("Vertical");
+                Debug.Log("MoveInput.x : "+moveInput.x.ToString());
+                Debug.Log("MoveInput : " + moveInput.ToString());
                 moveInput.x = Input.GetAxisRaw("Horizontal");
                 moveInput.Normalize();
                 theRB.velocity = moveInput * activeMoveSpeed;
@@ -371,6 +374,118 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    public void ForceSortBodyElement(string bodySide)
+    {
+        bool arrayEmpty = true;
+        foreach (Disk slot in JukeboxAnimation.instance.currentDisks)
+        {
+            if (slot != null)
+            {
+                arrayEmpty = false;
+            }
+        }
+
+        //Cas tourné vers le haut
+        if (bodySide == "back")
+        {
+            if (!arrayEmpty)
+            {
+                foreach (Disk disk in JukeboxAnimation.instance.currentDisks)
+                {
+                    if (disk != null)
+                    {
+                        disk.instrumentLinked.isFront = false;
+                        disk.instrumentLinked.SwitchSide();
+                    }
+                }
+            }
+            //animation
+            anim.SetBool("isFront", false);
+            //changement de l'ordre des éléments du joueur
+
+            jukeboxBodySR.sortingOrder = 1;
+
+            if (!arrayEmpty)
+            {
+                foreach (SpriteRenderer sr in disksSR)
+                {
+                    if (sr != null)
+                    {
+                        sr.sortingOrder = 2;
+                    }
+                }
+                foreach (Disk disk in JukeboxAnimation.instance.currentDisks)
+                {
+                    if (disk != null)
+                    {
+                        disk.instrumentLinked.instrumentSR.sortingOrder = -1;
+
+
+                        foreach (SpriteRenderer hand in disk.instrumentLinked.instrumentHandsSR)
+                        {
+                            hand.sortingOrder = -2;
+                        }
+                    }
+
+                }
+                //sorting des mains de l'arme
+            }
+            else
+            {
+
+
+                foreach (SpriteRenderer hand in handsSR)
+                {
+                    Debug.Log("Je suis passé par ici");
+                    hand.sortingOrder = -2;
+                }
+            }
+        }
+        //Cas tourné vers le bas
+        else
+        {
+            jukeboxBodySR.sortingOrder = -1;
+            anim.SetBool("isFront", true);
+            if (!arrayEmpty)
+            {
+                foreach (SpriteRenderer sr in disksSR)
+                {
+                    if (sr != null)
+                    {
+                        sr.sortingOrder = -2;
+                    }
+                }
+                foreach (Disk disk in JukeboxAnimation.instance.currentDisks)
+                {
+                    if (disk != null)
+                    {
+                        disk.instrumentLinked.isFront = true;
+                        disk.instrumentLinked.SwitchSide();
+                        disk.instrumentLinked.instrumentSR.sortingOrder = 1;
+
+                        foreach (SpriteRenderer hand in disk.instrumentLinked.instrumentHandsSR)
+                        {
+                            hand.sortingOrder = 2;
+                        }
+                    }
+
+
+                }
+
+
+
+            }
+            else
+            {
+                foreach (SpriteRenderer hand in handsSR)
+                {
+                    hand.sortingOrder = 2;
+                }
+            }
+
+        }
+    }
+   
     public void Jump()
     {
         moveInput.y = Input.GetAxisRaw("Vertical");
