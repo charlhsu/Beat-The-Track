@@ -109,7 +109,7 @@ MonoBehaviour:
   theRB: {fileID: 9204997181090893246}
   moveSpeed: 3
   shouldChasePlayer: 1
-  rangeToChasePlayer: 10
+  rangeToChasePlayer: 500
   shouldRunAway: 0
   runAwayRange: 0
   shouldWander: 0
@@ -117,6 +117,8 @@ MonoBehaviour:
   pauseLength: 1
   shouldPatrol: 0
   patrolPoints: []
+  shouldPatrolAndShoot: 0
+  shootPauseLength: 0
   shouldShoot: 1
   bullet: {fileID: 8421206055507380487, guid: 26e9bfe9ddb2fd14fa42f1021443e0ed, type: 3}
   firePoint: {fileID: 650813064377644243}
@@ -126,6 +128,7 @@ MonoBehaviour:
   theBody: {fileID: 9204997181943515264}
   anim: {fileID: 9204997181090893240}
   health: 100
+  immortal: 0
   shouldDropItem: 1
   itemsToDrop:
   - {fileID: 1074801421295528111, guid: 4f27733885323f04a844a4d390e7fb83, type: 3}

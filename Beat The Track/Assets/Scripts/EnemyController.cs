@@ -127,7 +127,7 @@ public class EnemyController : MonoBehaviour
                 {
                     
                     moveDirection = patrolPoints[currentPatrolPoint].position - transform.position;
-                    if(Vector3.Distance(transform.position, patrolPoints[currentPatrolPoint].position) < 0.2f)
+                    if(Vector3.Distance(transform.position, patrolPoints[currentPatrolPoint].position) < 0.5f)
                     {
                         currentPatrolPoint++;
                         if(currentPatrolPoint >= patrolPoints.Length)
@@ -254,5 +254,9 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
+    }
+    public void CreatePatrolArray(int size)
+    {
+        patrolPoints = new Transform[size];
     }
 }

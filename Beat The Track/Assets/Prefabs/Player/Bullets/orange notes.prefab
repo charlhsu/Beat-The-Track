@@ -102,7 +102,7 @@ MonoBehaviour:
   speed: 20
   theRB: {fileID: 2352700622667158808}
   impactEffect: {fileID: 1412660262603327049, guid: 04147906956f1764aa8f8298a8471572, type: 3}
-  bulletDamages: 5000
+  bulletDamages: 15
   hasMultipleSprites: 1
   sprites:
   - {fileID: 776952747, guid: e8cc0514f9f8313498643b7b9d542bf0, type: 3}

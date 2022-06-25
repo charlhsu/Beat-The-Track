@@ -8,6 +8,7 @@ public class CharacterTracker : MonoBehaviour
     // Start is called before the first frame update
 
     public int currentHealth, maxHealth, currentCoins;
+    public Disk currentDisk;
 
     private void Awake()
     {

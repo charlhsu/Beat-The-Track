@@ -31,6 +31,22 @@ public class LevelManager : MonoBehaviour
         currentCoins = CharacterTracker.instance.currentCoins;
         Time.timeScale = 1f;
         UIController.instance.coinText.text = currentCoins.ToString();
+        /*if(CharacterTracker.instance.currentDisk != null)
+        {
+            CharacterTracker.instance.currentDisk.transform.parent = PlayerController.instance.slots[CharacterTracker.instance.currentDisk.actualSlotNumber];
+            CharacterTracker.instance.currentDisk.transform.position = PlayerController.instance.slots[CharacterTracker.instance.currentDisk.actualSlotNumber].position;
+            CharacterTracker.instance.currentDisk.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            CharacterTracker.instance.currentDisk.transform.localScale = new Vector3(3.1f, 3.1f, 1f);
+
+            JukeboxAnimation.instance.currentDisks[CharacterTracker.instance.currentDisk.actualSlotNumber] = CharacterTracker.instance.currentDisk;
+            PlayerController.instance.disksSR[CharacterTracker.instance.currentDisk.actualSlotNumber] = CharacterTracker.instance.currentDisk.GetComponent<SpriteRenderer>();
+
+            Instrument instrumentClone = Instantiate(CharacterTracker.instance.currentDisk.instrumentLinked);
+            instrumentClone.transform.parent = PlayerController.instance.instrumentArm.transform;
+            instrumentClone.transform.localPosition = instrumentClone.localPos;
+            instrumentClone.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            CharacterTracker.instance.currentDisk.instrumentLinked = instrumentClone;
+        }*/
 
     }
 
@@ -45,14 +61,15 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator LevelEnd()
     {
-        AudioManager.instance.PlayVictory();
+        //AudioManager.instance.PlayVictory();
         //UIController.instance.StartFadeToBlack();
         PlayerController.instance.canMove = false;
-        yield return new WaitForSeconds(waitToLoad);
+        yield return new WaitForSeconds(0.5f);
 
-        CharacterTracker.instance.currentCoins = currentCoins;
+        /*CharacterTracker.instance.currentCoins = currentCoins;
         CharacterTracker.instance.maxHealth = PlayerHealthController.instance.maxHealth;
         CharacterTracker.instance.currentHealth = PlayerHealthController.instance.currentHealth;
+        CharacterTracker.instance.currentDisk = */
 
         SceneManager.LoadScene(nextLevel);
     }
@@ -96,7 +113,7 @@ public class LevelManager : MonoBehaviour
         }
         if (levelToLoad == 2)
         {
-            nextLevel = "level electro";
+            nextLevel = "Defi Electro";
         }
         if (levelToLoad == 3)
         {

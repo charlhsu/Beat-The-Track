@@ -43,6 +43,15 @@ public class CameraController : MonoBehaviour
                 DeactivateBigMap();
             }
         }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            mainCamera.orthographicSize = 2f;
+
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            mainCamera.orthographicSize = 5f;
+        }
     }
     public void ChangeTarget(Transform newTarget)
     {

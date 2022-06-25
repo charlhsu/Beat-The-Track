@@ -18,6 +18,9 @@ public class SequenceMusic : MonoBehaviour
     private bool aSequenceIsActive = false;
     private bool sequencesAreOver = false;
 
+    
+    private AudioManager audioManager;
+
     private void Awake()
     {
         instance = this;
@@ -25,6 +28,7 @@ public class SequenceMusic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager =gameObject.GetComponent<AudioManager>();
 /*        actions = sequences[currentSequence].actions;
         actionCounter = actions[currentAction].actionLength;
         musicLength = AudioManager.instance.musicToPlay.clip.length;*/
@@ -66,12 +70,17 @@ public class SequenceMusic : MonoBehaviour
         //Application de l'action
         if(actionCounter <= 0 && currentAction <= actions.Length -1 && aSequenceIsActive)
         {
+            
             //Activation des spawners
             foreach(EnemySpawner spawner in actions[currentAction].spawnersToActivate)
             {
                 spawner.Trigger();
 
             }
+            /*if (audioManager.enabled == false)
+            {
+                audioManager.enabled = true;
+            }*/
             //mise à jour de l'action en court
             currentAction++;
             actionCounter = actions[currentAction].actionLength; //initialisation du timer de l'action suivante

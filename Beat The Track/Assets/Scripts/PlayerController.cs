@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     [HideInInspector]
     public Vector2 moveInput;
+    [HideInInspector]
+    public bool isMoving;
+    private float stopSFXCounter = 0f;
 
     [Header("saut")]
     public bool canJump;
@@ -103,11 +106,38 @@ public class PlayerController : MonoBehaviour
             {
                 Physics2D.gravity = new Vector2(0, 0);
                 moveInput.y = Input.GetAxisRaw("Vertical");
-                Debug.Log("MoveInput.x : "+moveInput.x.ToString());
-                Debug.Log("MoveInput : " + moveInput.ToString());
                 moveInput.x = Input.GetAxisRaw("Horizontal");
                 moveInput.Normalize();
                 theRB.velocity = moveInput * activeMoveSpeed;
+
+                //Gestion du sfx des bruits de pas
+
+                
+                if (!isMoving && theRB.velocity != Vector2.zero)
+                {
+                  
+                    stopSFXCounter = 0.15f;
+                    AudioManager.instance.PlaySFX(22);
+                    isMoving = true;
+
+                }
+                if (theRB.velocity == Vector2.zero)
+                {
+                   
+                    if (stopSFXCounter > 0)
+                    {
+                        
+                        stopSFXCounter -= Time.deltaTime;
+                        
+                    }
+                    if (stopSFXCounter <= 0)
+                    {
+                        isMoving = false;
+                        AudioManager.instance.StopSFX(22);
+                    }
+                }
+                
+
             }
             if (canJump)
             {
@@ -207,7 +237,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             //Gestion du dash
-            /*if (Input.GetKeyDown(KeyCode.Space) && dashCoolCounter <= 0 && dashCounter <= 0)
+            if (Input.GetKeyDown(KeyCode.Space) && dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
@@ -230,7 +260,7 @@ public class PlayerController : MonoBehaviour
             if (dashCoolCounter > 0)
             {
                 dashCoolCounter -= Time.deltaTime;
-            }*/
+            }
 
             //changement entre l'animation statique et l'animation de mouvement
 
@@ -324,7 +354,6 @@ public class PlayerController : MonoBehaviour
 
                 foreach (SpriteRenderer hand in handsSR)
                 {
-                    Debug.Log("Je suis passé par ici");
                     hand.sortingOrder = -2;
                 }
             }
@@ -436,7 +465,6 @@ public class PlayerController : MonoBehaviour
 
                 foreach (SpriteRenderer hand in handsSR)
                 {
-                    Debug.Log("Je suis passé par ici");
                     hand.sortingOrder = -2;
                 }
             }

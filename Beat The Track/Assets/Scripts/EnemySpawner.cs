@@ -17,6 +17,8 @@ public class EnemySpawner : MonoBehaviour
     public EnemyController[] enemiesSpawnable;
     public SpriteRenderer theBody;
     public Transform spawnPoint;
+    public Transform[] patrolPoints;
+    //public int patrolNumber;
 
 
     public bool activeOnSight, activeOnTouch, activeOnTimer, isTriggerSpawner;
@@ -103,7 +105,28 @@ public class EnemySpawner : MonoBehaviour
             if (!waitEnough && spawnRateCounter >= spawnRate)
             {
                 int enemyToSpawn = Random.Range(0, enemiesSpawnable.Length);
-                Instantiate(enemiesSpawnable[enemyToSpawn], spawnPoint.position, spawnPoint.rotation);
+                EnemyController enemyClone = Instantiate(enemiesSpawnable[enemyToSpawn], spawnPoint.position, spawnPoint.rotation);
+
+                //gestion des patrol ennemies
+                if (enemyClone.shouldPatrol)
+                {
+                    //int indice = patrolNumber;
+                    enemyClone.CreatePatrolArray(patrolPoints.Length);
+                    for(int i = 0; i< patrolPoints.Length; i++)
+                    {
+                        
+                        //All fires use the same patrol points, so for exemple second one must have the second patrol point as a starting point
+                        /*if (indice == patrolPoints.Length)
+                        {
+                            indice = 0;
+                        }*/
+                        enemyClone.patrolPoints[i] = patrolPoints[i];
+                        //indice++;
+
+                    }
+
+                }
+
                 spawnCounter++;
                 spawnRateCounter = 0;
 

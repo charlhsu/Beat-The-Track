@@ -14,6 +14,8 @@ public class PlayerCutscene : MonoBehaviour
     private bool idle;
     private bool launchCamMove = false;
 
+    public GameObject manager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,21 +45,22 @@ public class PlayerCutscene : MonoBehaviour
                 PlayerController.instance.ForceSortBodyElement("front");
                 idle = true;
             }
-            if (idle)
+            
+        }
+        if (idle)
+        {
+            StartCoroutine(WaitCamMove());
+            
+            if (launchCamMove)
             {
-                StartCoroutine(WaitCamMove());
-                Debug.Log(launchCamMove);
-                if (launchCamMove)
-                {
-                    CameraController.instance.Zoom(8, 4);
-                }
-                if (CameraController.instance.mainCamera.orthographicSize >= 8)
-                {
-                    StartCoroutine(WaitZoom());
-                }
-              
-                
+                CameraController.instance.Zoom(8, 4);
             }
+           /* if (CameraController.instance.mainCamera.orthographicSize >= 8)
+            {
+                StartCoroutine(WaitZoom());
+            }*/
+
+
         }
     }
 
@@ -69,21 +72,27 @@ public class PlayerCutscene : MonoBehaviour
         }
     }
 
-    IEnumerator WaitCamMove()
+    public IEnumerator WaitCamMove()
     {
-        
+        PlayerController.instance.isMoving = false;
+        AudioManager.instance.StopSFX(22);
         yield return new WaitForSeconds(1);
-        Debug.Log("turlututu chapo pointu");
+    
         launchCamMove = true;
 
-    }
-    IEnumerator WaitZoom()
-    {
-        yield return new WaitForSeconds(1);
-        idle = false;
+        yield return new WaitForSeconds(3);
         PlayerController.instance.canMove = true;
-            
+        idle = false;
+        
+        manager.GetComponent<SequenceMusic>().enabled = true;
+        manager.GetComponent<AudioManager>().enabled = true;
+        manager.GetComponent<TileManager>().enabled = true;
+
+
+
     }
+   
+    
 
     
 
